@@ -43,6 +43,8 @@ import org.joda.time.tz.Provider;
 import org.joda.time.tz.UTCProvider;
 import org.joda.time.tz.ZoneInfoProvider;
 
+import org.checkerframework.checker.determinism.qual.Det;
+
 /**
  * DateTimeZone represents a time zone.
  * <p>
@@ -725,7 +727,7 @@ public abstract class DateTimeZone implements Serializable {
      * @param instant  milliseconds from 1970-01-01T00:00:00Z to get the name for
      * @return the human-readable short name in the default locale
      */
-    public final String getShortName(long instant) {
+    public final @Det String getShortName(long instant) {
         return getShortName(instant, null);
     }
 
